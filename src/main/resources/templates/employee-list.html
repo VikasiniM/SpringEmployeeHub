@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee List</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800 font-sans p-6">
+<h2 class="text-3xl font-bold mb-6 text-center text-indigo-700">Employee List</h2>
+
+<a th:href="@{/employees/new}"
+   class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded mb-6 transition-all duration-300">
+   Add New Employee
+</a>
+
+<table class="w-full table-auto border-collapse bg-white shadow-lg rounded-lg overflow-hidden">
+    <thead>
+    <tr class="bg-indigo-600 text-white text-sm uppercase font-semibold">
+        <th class="px-6 py-3">ID</th>
+        <th class="px-6 py-3">Name</th>
+        <th class="px-6 py-3">Job Title</th>
+        <th class="px-6 py-3">Salary</th>
+        <th class="px-6 py-3">Department</th>
+        <th class="px-6 py-3">Hire Date</th>
+        <th class="px-6 py-3">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="employee : ${employees}" class="hover:bg-gray-100 border-t border-gray-200 text-sm">
+        <td class="px-6 py-4" th:text="${employee.empId}"></td>
+        <td class="px-6 py-4" th:text="${employee.empName}"></td>
+        <td class="px-6 py-4" th:text="${employee.jobTitle}"></td>
+        <td class="px-6 py-4" th:text="${employee.salary}"></td>
+        <td class="px-6 py-4" th:text="${employee.department}"></td>
+        <td class="px-6 py-4" th:text="${employee.hireDate}"></td>
+        <td class="px-6 py-4">
+            <a th:href="@{'/employees/edit/' + ${employee.empId}}"
+               class="text-blue-600 hover:text-blue-800 underline mr-3">Edit</a>
+            <a th:href="@{'/employees/delete/' + ${employee.empId}}"
+               onclick="return confirm('Are you sure?')"
+               class="text-red-600 hover:text-red-800 underline">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
