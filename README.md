@@ -7,13 +7,13 @@ Welcome to **SpringEmployeeHub**, a real-time Employee Management System built w
 ## 📸 Screenshots
 
 ### Employee List
-![Employee List](images/employee-list.png)
+![Employee List](./images/employee-list.png)
 
 ### Add New Employee
-![Add New Employee](images/add-employee.png)
+![Add New Employee](./images/add-new-employee.png)
 
 ### Home / Index Page
-![Index Page](images/index.png)
+![Index Page](./images/index.png)
 
 ---
 
